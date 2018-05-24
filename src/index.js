@@ -1,14 +1,16 @@
 import React from "react";
 import { render } from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 
 import "bulma/css/bulma.css";
+// import "./index.css";
 
 import Layout from "./components/Layout";
 
 const App = () => (
-  <div>
+  <BrowserRouter>
     <Layout />
-  </div>
+  </BrowserRouter>
 );
 
 render(<App />, document.getElementById("root"));

@@ -1,5 +1,5 @@
 {
-  "name": "bulma-layout-nav-rr4",
+  "name": "bulma-navbar-rr4-transitions",
   "version": "1.0.0",
   "description": "Playing around with bulma, RR transitions, etc.",
   "keywords": [],
@@ -9,6 +9,7 @@
     "react": "16.3.2",
     "react-dom": "16.3.2",
     "react-router-dom": "4.2.2",
+    "react-router-transition": "1.2.1",
     "react-scripts": "1.1.4"
   },
   "devDependencies": {},
