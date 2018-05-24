@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import NavBar from "./NavBar";
+import Closer from "./Closer";
 import Router from "../Router";
 
 // import Router from "../Router";
@@ -25,7 +26,9 @@ export default class Layout extends React.Component {
             toggleMenu={this.toggleMenu}
             color={this.state.color}
           />
+
           <Router />
+          <Closer className="is-large" toggleMenu={this.toggleMenu} />
         </div>
       </BrowserRouter>
     );
