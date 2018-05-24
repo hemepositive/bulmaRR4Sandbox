@@ -1,19 +1,19 @@
 import React from "react";
 import NavBar from "./NavBar";
-import Closer from "./Closer";
 import Router from "../Router";
 
 export default class Layout extends React.Component {
   state = {
     activeMenu: false,
-    color: "red"
+    color: "#DC143C"
   };
+  // toggle burger menu
   toggleMenu = () => {
     this.setState({
       activeMenu: !this.state.activeMenu
     });
-    console.log("menu toggle click", this.state.activeMenu);
   };
+  // toggle state.activeMenu only if true so clicks in content do not trigger menu opening
   divToggleMenu = () => {
     if (this.state.activeMenu) {
       this.setState({
@@ -29,10 +29,10 @@ export default class Layout extends React.Component {
           toggleMenu={this.toggleMenu}
           color={this.state.color}
         />
-
-        <Router divToggleMenu={this.divToggleMenu} />
-
-        <Closer className="is-large" toggleMenu={this.toggleMenu} />
+        {/* divToggleMenu wraps Router for closing menu from click on content section */}
+        <div onClick={this.divToggleMenu}>
+          <Router />
+        </div>
       </div>
     );
   }
