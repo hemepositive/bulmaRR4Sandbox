@@ -4,6 +4,7 @@ import Router from "../Router";
 
 export default class Layout extends React.Component {
   state = {
+    user: false,
     activeMenu: false,
     color: "#DC143C"
   };
@@ -21,13 +22,20 @@ export default class Layout extends React.Component {
       });
     }
   };
+
+  toggleUser = () => {
+    this.setState({ user: !this.state.user });
+    console.log("user: ", this.state.user);
+  };
   render() {
     return (
       <div>
         <NavBar
           activeMenu={this.state.activeMenu}
           toggleMenu={this.toggleMenu}
+          toggleUser={this.toggleUser}
           color={this.state.color}
+          user={this.state.user}
         />
         {/* divToggleMenu wraps Router for closing menu from click on content section */}
         <div onClick={this.divToggleMenu}>

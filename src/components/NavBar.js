@@ -12,6 +12,33 @@ const NavbarBurger = props => (
   </button>
 );
 
+const EndNavbar = props =>
+  props.user ? (
+    <UserEnd toggleUser={props.toggleUser} user={props.user} />
+  ) : (
+    <NoUserEnd toggleUser={props.toggleUser} />
+  );
+
+const NoUserEnd = props => (
+  <a className="navbar-item" onClick={props.toggleUser}>
+    Sign In
+  </a>
+);
+
+const UserEnd = props => (
+  <div class="navbar-item has-dropdown is-hoverable">
+    <a class="navbar-link">User</a>
+    <div class="navbar-dropdown">
+      <a class="navbar-item">Account</a>
+      <a class="navbar-item">Specials</a>
+      <div className="navbar-divider" />
+      <a class="navbar-item" onClick={props.toggleUser}>
+        Sign out
+      </a>
+    </div>
+  </div>
+);
+
 const NavBar = props => (
   <nav className="navbar has-shadow is-fixed-top">
     <div className="navbar-brand">
@@ -34,7 +61,7 @@ const NavBar = props => (
           Veggies
         </Link>
         {/* DROPDOWN in START */}
-        <div class="navbar-item has-dropdown is-hoverable">
+        <div className="navbar-item has-dropdown is-hoverable">
           <a className="navbar-link">Animals</a>
           <div className="navbar-dropdown">
             <Link className="navbar-item" to="/cows">
@@ -48,14 +75,7 @@ const NavBar = props => (
       </div>
       {/* END */}
       <div className="navbar-end">
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">Docs</a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item">Overview</a>
-            <a class="navbar-item">Elements</a>
-            <a class="navbar-item">Components</a>
-          </div>
-        </div>
+        <EndNavbar toggleUser={props.toggleUser} user={props.user} />
       </div>
     </div>
   </nav>

@@ -3,7 +3,6 @@ import { render } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 
 import "bulma/css/bulma.css";
-// import "./index.css";
 
 import Layout from "./components/Layout";
 
